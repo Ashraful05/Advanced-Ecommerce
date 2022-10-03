@@ -128,6 +128,18 @@
                     <li class="{{ ($route=='cancel-orders')?'active':'' }}"><a href="{{ route('cancel-orders') }}"><i class="ti-more"></i>Cancel Orders</a></li>
                 </ul>
             </li>
+            <li class="treeview {{ ($prefix=='/stock')?'active':'' }}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Manage Stock</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                     </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ ($route=='product-stock')?'active':'' }}"><a href="{{ route('product-stock') }}"><i class="ti-more"></i>Product Stock</a></li>
+                </ul>
+            </li>
             <li class="treeview {{ ($prefix=='/blog')?'active':'' }}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -206,4 +218,23 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ ($route=
+                    <li class="{{ ($route=='all-users')?'active':'' }}">
+                        <a href="{{ route('all-users') }}"><i class="ti-more"></i>Users</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+        </ul>
+    </section>
+
+    <div class="sidebar-footer">
+        <!-- item-->
+        <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+        <!-- item-->
+        <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
+        <!-- item-->
+        <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+    </div>
+</aside>

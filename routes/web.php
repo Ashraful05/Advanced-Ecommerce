@@ -284,3 +284,15 @@ Route::prefix('return')->group(function(){
     Route::get('all',[\App\Http\Controllers\Backend\ReturnRequestController::class,'allRequest'])->name('all-request');
     Route::get('request/approve/{id}',[\App\Http\Controllers\Backend\ReturnRequestController::class,'requestApprove'])->name('approve');
 });
+//admin product review management routes...
+Route::prefix('review')->group(function(){
+    Route::get('pending',[\App\Http\Controllers\Backend\ReturnRequestController::class,'pendingReview'])->name('pending.review');
+    Route::get('approve/{id}',[\App\Http\Controllers\Backend\ReturnRequestController::class,'approveReview'])->name('review.approve');
+    Route::get('publish',[\App\Http\Controllers\Backend\ReturnRequestController::class,'publishReview'])->name('publish.review');
+    Route::get('delete/{id}',[\App\Http\Controllers\Backend\ReturnRequestController::class,'reviewDelete'])->name('review.delete');
+});
+
+//admin manage product stock.......
+Route::prefix('stock')->group(function (){
+    Route::get('product',[\App\Http\Controllers\Backend\ProductController::class,'productStock'])->name('product-stock');
+});
