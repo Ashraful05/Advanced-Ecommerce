@@ -279,7 +279,7 @@ Route::prefix('setting')->group(function(){
     Route::post('seo/update/{id}',[\App\Http\Controllers\Backend\SiteSettingController::class,'updateSeo'])->name('update.seo.setting');
 });
 //admin manage return request routes....
-Route::prefix('return')->group(function(){
+Route::prefix('returns')->group(function(){
     Route::get('request',[\App\Http\Controllers\Backend\ReturnRequestController::class,'returnRequest'])->name('return-request');
     Route::get('all',[\App\Http\Controllers\Backend\ReturnRequestController::class,'allRequest'])->name('all-request');
     Route::get('request/approve/{id}',[\App\Http\Controllers\Backend\ReturnRequestController::class,'requestApprove'])->name('approve');
@@ -295,4 +295,9 @@ Route::prefix('review')->group(function(){
 //admin manage product stock.......
 Route::prefix('stock')->group(function (){
     Route::get('product',[\App\Http\Controllers\Backend\ProductController::class,'productStock'])->name('product-stock');
+});
+
+//admin user role routes....
+Route::prefix('adminuserrole')->group(function(){
+    Route::get('all',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'allAdminRole'])->name('all.admin.user');
 });
