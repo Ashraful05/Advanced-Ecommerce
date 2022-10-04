@@ -36,7 +36,7 @@ class BrandController extends Controller
         $brand->brand_name_bangla=$request->brand_name_bangla;
         $brand->brand_slug_english=strtolower(str_replace(' ','-',$request->brand_name_english));
         $brand->brand_slug_bangla=str_replace(' ','-',$request->brand_name_bangla);
-        $brand->brand_slug_hindi=str_replace(' ','-',$request->brand_name_hindi);
+        $brand->brand_slug_hindi=str_replace(' ','_',$request->brand_name_hindi);
         $image = $request->file('brand_image');
         $name_gen = date('Y_m_d_Hi_').$image->getClientOriginalName();
         Image::make($image)->resize(300,200)->save('upload/brand_images/'.$name_gen);

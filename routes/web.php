@@ -299,5 +299,7 @@ Route::prefix('stock')->group(function (){
 
 //admin user role routes....
 Route::prefix('adminuserrole')->group(function(){
-    Route::get('all',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'allAdminRole'])->name('all.admin.user');
+    Route::get('all',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'allAdminUserRole'])->name('all.admin.user');
+    Route::get('add',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleAdd'])->name('add.admin');
+    Route::post('save',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleSave'])->name('save.admin.user');
 });
