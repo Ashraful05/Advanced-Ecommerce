@@ -16,6 +16,7 @@
                     <div class="widget-user-image">
 
                         <img class="rounded-circle" src="{{ !empty($admin->profile_photo_path)?url('upload/admin_images/'.$admin->profile_photo_path):url('upload/no_image.png') }}" style="height: 90px;" alt="User Avatar">
+{{--                        <img class="rounded-circle" src="{{ !empty($admin->profile_photo_path)?asset($admin->profile_photo_path):url('upload/no_image.png') }}" style="height: 90px;" alt="User Avatar">--}}
 
                     </div>
                     <div class="box-footer">

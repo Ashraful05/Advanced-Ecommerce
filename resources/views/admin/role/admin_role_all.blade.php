@@ -94,8 +94,8 @@
 
                                         </td>
                                         <td>
-                                            <a href="{{ route('pending-order-details',$item->id) }}" class="btn btn-primary" title="View"><i class="fa fa-pencil"></i></a>
-                                            <a href="{{ route('invoice-download',$item->id) }}" id="delete" class="btn btn-danger" title="Invoice"><i class="fa fa-trash"></i></a>
+                                            <a href="{{ route('edit.admin.user',$item->id) }}" class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ route('delete.admin.user',$item->id) }}" id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

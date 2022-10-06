@@ -302,4 +302,7 @@ Route::prefix('adminuserrole')->group(function(){
     Route::get('all',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'allAdminUserRole'])->name('all.admin.user');
     Route::get('add',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleAdd'])->name('add.admin');
     Route::post('save',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleSave'])->name('save.admin.user');
+    Route::get('edit/{id}',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleEdit'])->name('edit.admin.user');
+    Route::post('update/{id}',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleUpdate'])->name('update.admin.user');
+    Route::get('delete/{id}',[\App\Http\Controllers\Backend\AdminUserRoleController::class,'adminUserRoleDelete'])->name('delete.admin.user');
 });

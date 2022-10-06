@@ -62,6 +62,7 @@
 <script src="{{ asset('backend/js/pages/editor.js') }}"></script>
 <script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script>
     @if(Session::has('message'))
     var type = "{{ Session::get('alert-type','info') }}"

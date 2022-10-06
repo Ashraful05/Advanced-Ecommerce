@@ -21,6 +21,7 @@
                         <div class="col">
                             <form action="{{ route('admin.profile.update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="old_img">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="row">
