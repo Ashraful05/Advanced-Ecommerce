@@ -241,7 +241,7 @@ Route::group(['prefix'=>'user', 'middleware'=>['user','auth'], 'namespace'=>'Use
     Route::post('return/order/{order_id}',[\App\Http\Controllers\User\AllUserController::class,'returnOrder'])->name('return-order');
     Route::get('return/order/list',[\App\Http\Controllers\User\AllUserController::class,'returnOrderList'])->name('return-order-list');
     Route::get('cancel/order',[\App\Http\Controllers\User\AllUserController::class,'cancelOrder'])->name('cancel-order');
-
+    Route::post('order/tracking',[\App\Http\Controllers\User\AllUserController::class,'orderTracking'])->name('order.tracking');
 });
 
 //my cart page all route......
