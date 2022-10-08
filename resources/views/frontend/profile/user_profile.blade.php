@@ -18,7 +18,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">User Name</label>
-                                    <input type="text"  name="name" value="{{ $user->name }}" class="form-control unicase-form-control text-input">
+                                    <input type="text"  name="name" value="{{ $user->name }}" class="form-control unicase-form-control text-input" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">Email Address</label>

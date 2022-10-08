@@ -5,7 +5,7 @@
         <div class="container">
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li class='active'>Login</li>
                 </ul>
             </div><!-- /.breadcrumb-inner -->
@@ -27,12 +27,22 @@
                         <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
                             @csrf
                             <div class="form-group">
-                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-                                <input type="email" id="email" name="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+                                <label class="info-title" for="exampleInputEmail1">User Name<span>*</span></label>
+                                <input type="text" id="name" name="name" class="form-control unicase-form-control text-input">
+                                @error('name')
+                                <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
-                                <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" >
+                                <label class="info-title" for="exampleInputPassword1">User Password <span>*</span></label>
+                                <input type="password" id="password" name="password" class="form-control unicase-form-control text-input">
+                                @error('password')
+                                <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="radio outer-xs">
                                 <label>
@@ -53,8 +63,8 @@
                             @csrf
                             <div class="form-group">
                                 <label class="info-title" for="name">Name <span>*</span></label>
-                                <input type="text" id="name" name="name" class="form-control unicase-form-control text-input" >
-                                @error('name')
+                                <input type="text" id="name" name="regname" class="form-control unicase-form-control text-input" >
+                                @error('regname')
                                     <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -81,7 +91,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
-                                <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+                                <input type="password" id="password" name="password" class="form-control unicase-form-control text-input">
                                 @error('password')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>

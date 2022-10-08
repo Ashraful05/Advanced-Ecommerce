@@ -1,18 +1,12 @@
 @extends('frontend.frontend_master')
-@section('title','Sub CategoryWise Product')
+@section('title','Product Search Page')
 @section('content')
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
                     <li><a href="#">Home</a></li>
-                    @foreach($breadcrumbSubCategory as $item)
-                        <li class="active">{{ $item->category->category_name_english }}</li>
-                    @endforeach
-
-                    @foreach($breadcrumbSubCategory as $item)
-                        <li class="active">{{ $item->subcategory_name_english }}</li>
-                    @endforeach
+                    <li class='active'>Handbags</li>
                 </ul>
             </div>
             <!-- /.breadcrumb-inner -->
@@ -180,13 +174,7 @@
                         </div>
                     </div>
 
-                    @foreach($breadcrumbSubCategory as $item)
-                        <span class="badge badge-danger" style="background: #808080">{{ $item->category->category_name_english }} </span>
-                    @endforeach
-
-                    @foreach($breadcrumbSubCategory as $item)
-                        <span class="badge badge-danger" style="background: #FF0000">{{ $item->subcategory_name_english }} </span>
-                    @endforeach
+                    <h4><b>Total Search  </b><span class="badge badge-danger" style="background: #FF0000;">{{ count($products) }}</span> Items </h4>
                     <div class="clearfix filters-container m-t-10">
                         <div class="row">
                             <div class="col col-sm-6 col-md-2">
@@ -332,8 +320,8 @@
 
                             <div class="tab-pane "  id="list-container">
                                 <div class="category-product">
-                                    <div class="category-product-inner wow fadeInUp">
-                                        @foreach($products as $product)
+                                    @foreach($products as $product)
+                                        <div class="category-product-inner wow fadeInUp">
                                             <div class="products">
                                                 <div class="product-list product">
 
@@ -407,10 +395,10 @@
                                                 </div>
                                                 <!-- /.product-list -->
                                             </div>
-                                        @endforeach
-                                        <!-- /.products -->
-                                    </div>
-                                    <!-- /.category-product-inner -->
+                                            @endforeach
+                                            <!-- /.products -->
+                                        </div>
+                                        <!-- /.category-product-inner -->
                                 </div>
                                 <!-- /.category-product -->
                             </div>
@@ -421,7 +409,7 @@
                             <div class="text-right">
                                 <div class="pagination-container">
                                     <ul class="list-inline list-unstyled">
-                                        {{ $products->links() }}
+                                        {{--                                        {{ $products->links() }}--}}
                                     </ul>
                                     <!-- /.list-inline -->
                                 </div>
@@ -483,3 +471,4 @@
 
     </div>
 @endsection
+

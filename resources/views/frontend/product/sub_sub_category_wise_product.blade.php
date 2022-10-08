@@ -6,7 +6,17 @@
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
                     <li><a href="#">Home</a></li>
-                    <li class='active'>Handbags</li>
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <li class="active">{{ $item->category->category_name_english }}</li>
+                    @endforeach
+
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <li class="active">{{ $item->subcategory->subcategory_name_english }}</li>
+                    @endforeach
+
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <li class="active">{{ $item->subsubcategory_name_english }}</li>
+                    @endforeach
                 </ul>
             </div>
             <!-- /.breadcrumb-inner -->
@@ -174,6 +184,17 @@
                         </div>
                     </div>
 
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <span class="badge badge-danger"  style="background: #808080">{{ $item->category->category_name_english }}</span>
+                    @endforeach
+
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <span class="badge badge-danger" style="background: #808080;">{{ $item->subcategory->subcategory_name_english }}</span>
+                    @endforeach
+
+                    @foreach($breadcrumbSubSubCategory as $item)
+                        <span class="badge badge-danger" style="background: #FF0000">{{ $item->subsubcategory_name_english }}</span>
+                    @endforeach
 
                     <div class="clearfix filters-container m-t-10">
                         <div class="row">

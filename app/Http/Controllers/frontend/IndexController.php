@@ -10,6 +10,7 @@ use App\Models\MultiImage;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -149,7 +150,9 @@ class IndexController extends Controller
             ->orderby('id','desc')
             ->paginate(3);
         $categories = Category::orderby('category_name_english','asc')->get();
-        return view('frontend.product.sub_category_wise_product',compact('products','categories'));
+        $breadcrumbSubCategory = SubCategory::with('category')->where('id',$subcategory_id)->get();
+        return view('frontend.product.sub_category_wise_product',compact(
+            'products','categories','breadcrumbSubCategory'));
     }
     public function subSubCategoryWiseProduct($sub_subcategory_id,$slug)
     {
@@ -158,7 +161,9 @@ class IndexController extends Controller
             ->orderby('id','desc')
             ->paginate(3);
         $categories = Category::orderby('category_name_english','asc')->get();
-        return view('frontend.product.sub_sub_category_wise_product',compact('products','categories'));
+        $breadcrumbSubSubCategory = SubSubCategory::with(['category','subcategory'])->where('id',$sub_subcategory_id)->get();
+        return view('frontend.product.sub_sub_category_wise_product',compact(
+            'products','categories','breadcrumbSubSubCategory'));
     }
 
     //product view with ajax......
@@ -175,5 +180,13 @@ class IndexController extends Controller
             'color' => $product_color,
             'size' => $product_size,
         ));
+    }
+
+    public function productSearch(Request $request)
+    {
+        $item = $request->search;
+        $categories = Category::orderby('category_name_english','asc')->get();
+        $products = Product::where('product_name_english','LIKE',"%$item%")->get();
+        return view('frontend.product.product_search',compact('categories','products'));
     }
 }
