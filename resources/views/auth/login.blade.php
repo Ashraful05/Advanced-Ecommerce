@@ -24,12 +24,24 @@
                             <a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
                             <a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
                         </div>
+
                         <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
                             @csrf
+
+{{--                            <div class="form-group">--}}
+{{--                                <label class="info-title" for="exampleInputEmail1">User Name<span>*</span></label>--}}
+{{--                                <input type="text" id="name" name="name" class="form-control unicase-form-control text-input">--}}
+{{--                                @error('name')--}}
+{{--                                <span class="text-danger" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+
                             <div class="form-group">
-                                <label class="info-title" for="exampleInputEmail1">User Name<span>*</span></label>
-                                <input type="text" id="name" name="name" class="form-control unicase-form-control text-input">
-                                @error('name')
+                                <label class="info-title" for="exampleInputEmail1">User Email<span>*</span></label>
+                                <input type="email" id="email" name="email" class="form-control unicase-form-control text-input">
+                                @error('email')
                                 <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

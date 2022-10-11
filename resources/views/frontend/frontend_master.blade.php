@@ -752,6 +752,26 @@
     // couponRemove();
 </script>
 
+<script>
+    $("body").on("keyup","#search",function(){
+        let text = $("#search").val();
+        // console.log(text);
+        $.ajax({
+           data: {search : text},
+            url: "http://localhost/Advanced-Ecommerce/public/search-product",
+            method: "POST",
+            beforSend: function(request){
+                return request.setRequestHeader('X-CSRF-TOKEN',("meta[name = 'csrf-token' ]"))
+            },
+            success:function(result){
+
+            },
+
+
+        });
+    });
+</script>
+
 
 </body>
 </html>

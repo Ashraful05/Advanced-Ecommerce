@@ -308,3 +308,6 @@ Route::prefix('adminuserrole')->group(function(){
 });
 //product search route...
 Route::post('/search',[\App\Http\Controllers\frontend\IndexController::class,'productSearch'])->name('product.search');
+
+//advanced product search route....
+Route::post('search-product',[\App\Http\Controllers\frontend\IndexController::class,'advancedProductSearch']);

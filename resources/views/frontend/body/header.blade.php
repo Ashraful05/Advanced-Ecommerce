@@ -95,9 +95,13 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" name="search" placeholder="Search here..." />
-                                <a class="search-button" href="#" ></a> </div>
+                                <input class="search-field" name="search" id="search" placeholder="Search here..." />
+                                <button class="search-button" type="submit" ></button>
+                            </div>
                         </form>
+                        @error('search')
+                        <strong class="text-center text-danger">{{ $message }}</strong>
+                        @enderror
                     </div>
                     <!-- /.search-area -->
                     <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
