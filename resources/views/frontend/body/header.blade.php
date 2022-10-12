@@ -95,10 +95,11 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" name="search" id="search" placeholder="Search here..." />
+                                <input class="search-field" name="search" id="search" onfocus="search_result_show()" onblur="search_result_hide()" placeholder="Search here..." />
                                 <button class="search-button" type="submit" ></button>
                             </div>
                         </form>
+                        <div id="searchProduct"></div>
                         @error('search')
                         <strong class="text-center text-danger">{{ $message }}</strong>
                         @enderror
@@ -281,3 +282,29 @@
 
 
 </header>
+<style>
+    .search-area{
+        position: relative;
+    }
+    #searchProducts {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+
+<script>
+    function search_result_hide()
+    {
+        $("#searchProduct").slideUp();
+    }
+    function search_result_show()
+    {
+        $("#searchProduct").slideDown();
+    }
+</script>
