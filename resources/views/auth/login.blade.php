@@ -75,8 +75,8 @@
                             @csrf
                             <div class="form-group">
                                 <label class="info-title" for="name">Name <span>*</span></label>
-                                <input type="text" id="name" name="regname" class="form-control unicase-form-control text-input" >
-                                @error('regname')
+                                <input type="text" id="name" name="name" class="form-control unicase-form-control text-input" >
+                                @error('name')
                                     <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
