@@ -29,6 +29,12 @@ class ProductController extends Controller
     }
     public function saveProduct(Request $request)
     {
+        $this->validate($request,['digital_file'=>'required|mimes:jpeg,pdf,png,jpg,zip|max:2048']);
+        if($files = $request->file('digital_file')){
+            $destinationPath = 'upload/pdf';
+            $digitalItem = date('Y_m_d_Hi_').'.'.$files->getClientOriginalExtension();
+            $files->move($destinationPath,$digitalItem);
+        }
         $image = $request->file('product_thumbnail');
         $name_gen = date('Y_m_d_Hi_').$image->getClientOriginalName();
         Image::make($image)->resize(300,200)->save('upload/product_images/thumbnail_images/'.$name_gen);
@@ -61,6 +67,7 @@ class ProductController extends Controller
             'featured'=>$request->featured,
             'special_offer'=>$request->special_offer,
             'special_deals'=>$request->special_deals,
+            'digital_file'=>$digitalItem,
             'status'=>1,
 
         ]);

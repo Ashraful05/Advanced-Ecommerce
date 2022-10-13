@@ -338,6 +338,19 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <h5>Digital Product<span class="text-danger"> pdf,xlx,csv*</span></h5>
+                                            <div class="controls">
+                                                <input type="file" name="digital_file" class="form-control" >
+                                            </div>
+                                            @error('file')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="text-xs-right">
                                     <button type="submit" class="btn btn-rounded btn-info">Add Product</button>
