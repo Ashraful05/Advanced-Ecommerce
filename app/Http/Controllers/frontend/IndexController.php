@@ -143,7 +143,7 @@ class IndexController extends Controller
         $categories = Category::orderby('category_name_english','asc')->get();
         return view('frontend.product.tag_wise_product',compact('products','categories'));
     }
-    public function subCategoryWiseProduct($subcategory_id,$slug)
+    public function subCategoryWiseProduct(Request $request,$subcategory_id,$slug)
     {
         $products = Product::where('status',1)
             ->where('subcategory_id',$subcategory_id)
@@ -151,6 +151,15 @@ class IndexController extends Controller
             ->paginate(3);
         $categories = Category::orderby('category_name_english','asc')->get();
         $breadcrumbSubCategory = SubCategory::with('category')->where('id',$subcategory_id)->get();
+
+        //load more product with ajax......
+       if($request->ajax()){
+           $grid_view = view('frontend.product.grid_view_product',compact('products'))->render();
+           $list_view = view('frontend.product.list_view_product',compact('products'))->render();
+           return response()->json(['grid_view'=>$grid_view, 'list_view'=>$list_view]);
+       }
+       //end load more product with ajax.....
+
         return view('frontend.product.sub_category_wise_product',compact(
             'products','categories','breadcrumbSubCategory'));
     }
@@ -160,6 +169,7 @@ class IndexController extends Controller
             ->where('sub_subcategory_id',$sub_subcategory_id)
             ->orderby('id','desc')
             ->paginate(3);
+        return $products;
         $categories = Category::orderby('category_name_english','asc')->get();
         $breadcrumbSubSubCategory = SubSubCategory::with(['category','subcategory'])->where('id',$sub_subcategory_id)->get();
         return view('frontend.product.sub_sub_category_wise_product',compact(
@@ -202,4 +212,22 @@ class IndexController extends Controller
            ->get();
        return view('frontend.product.advanced_search_product',compact('products'));
     }
+
+
+//    public function loadMoreProduct(Request $request,$subcategory_id)
+//    {
+//        $products = Product::where('status',1)
+//            ->where('subcategory_id',$subcategory_id)
+//            ->orderby('id','desc')
+//            ->paginate(3);
+//        if($request->ajax()){
+//            $grid_view = view('frontend.product.grid_view_product',compact('products'))->render();
+//            $list_view = view('frontend.product.list_view_product',compact('products'))->render();
+//            return response()->json(['grid_view'=>$grid_view, 'list_view'=>$list_view]);
+////            return $grid_view;
+//        }
+//    }
+
+
+
 }

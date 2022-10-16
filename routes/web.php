@@ -211,6 +211,7 @@ Route::get('product-details/{id}/{slug}',[\App\Http\Controllers\frontend\IndexCo
 Route::get('product/tag/{tag}',[\App\Http\Controllers\frontend\IndexController::class,'tagWiseProduct']);
 Route::get('subcategory-product/{subcategory_id}/{slug}',[\App\Http\Controllers\frontend\IndexController::class,'subCategoryWiseProduct']);
 Route::get('subsubcategory-product/{sub_subcategory_id}/{slug}',[\App\Http\Controllers\frontend\IndexController::class,'subSubCategoryWiseProduct']);
+//Route::get('page/ajax/load/product/{subcategory_id}',[\App\Http\Controllers\frontend\IndexController::class,'loadMoreProduct']);
 
 //product view modal with ajax...
 Route::get('/product-view-modal/{id}',[\App\Http\Controllers\frontend\IndexController::class,'productViewAjax']);
@@ -311,3 +312,6 @@ Route::post('/search',[\App\Http\Controllers\frontend\IndexController::class,'pr
 
 //advanced product search route....
 Route::post('search-product',[\App\Http\Controllers\frontend\IndexController::class,'advancedProductSearch']);
+
+//shop page route..........
+Route::get('shop',[\App\Http\Controllers\frontend\ShopController::class,'shopPage'])->name('shop.page');

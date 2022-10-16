@@ -220,7 +220,7 @@
             },
             error:function(error)
             {
-                alert(error);
+                console.log(error);
             }
         })
     }
@@ -308,7 +308,7 @@
                 // console.log(response);
             },
             error:function(error){
-                alert(error);
+                // alert(error);
             }
         })
     }
@@ -779,6 +779,9 @@
 
     });
 </script>
+
+
+
 
 
 </body>
