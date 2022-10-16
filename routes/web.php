@@ -315,3 +315,4 @@ Route::post('search-product',[\App\Http\Controllers\frontend\IndexController::cl
 
 //shop page route..........
 Route::get('shop',[\App\Http\Controllers\frontend\ShopController::class,'shopPage'])->name('shop.page');
+Route::post('shop/filter',[\App\Http\Controllers\frontend\ShopController::class,'shopFilter'])->name('shop.filter');
