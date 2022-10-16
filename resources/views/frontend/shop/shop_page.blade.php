@@ -29,8 +29,10 @@
                                 <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
                                 <div class="sidebar-widget wow fadeInUp">
                                     <h3 class="section-title">shop by</h3>
+
+
                                     <div class="widget-header">
-                                        <h4 class="widget-title">Category</h4>
+                                        <h4 class="widget-title">Category Filter</h4>
                                     </div>
                                     <div class="sidebar-widget-body">
                                         <div class="accordion">
@@ -56,6 +58,47 @@
                                                                 {{ $category->category_name_english }}
                                                             @else
                                                                 {{ $category->category_name_bangla }}
+                                                            @endif
+                                                        </label>
+                                                    </div>
+                                                    <!-- /.accordion-heading -->
+
+                                                    <!-- /.accordion-body -->
+                                                </div>
+                                            @endforeach
+
+                                            <!-- /.accordion-group -->
+                                        </div>
+                                        <!-- /.accordion -->
+                                    </div>
+
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Brand Filter</h4>
+                                    </div>
+                                    <div class="sidebar-widget-body">
+                                        <div class="accordion">
+
+                                            @if(!empty($_GET['brand']))
+                                                @php
+                                                    $filterBrand = explode(',',$_GET['brand']);
+                                                @endphp
+                                            @endif
+
+                                            @foreach($brands as $brand)
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="brand[]"
+                                                                   value="{{ $brand->brand_slug_english }}"
+                                                                   class="form-check-input"
+                                                                   @if(!empty($filterBrand) && in_array($brand->brand_slug_english,$filterBrand))
+                                                                       checked
+                                                                   @endif
+                                                                   onchange="this.form.submit()">
+                                                            @if(Session::get('language') == 'english')
+                                                                {{ $brand->brand_slug_english }}
+                                                            @else
+                                                                {{ $brand->brand_slug_bangla }}
                                                             @endif
                                                         </label>
                                                     </div>
